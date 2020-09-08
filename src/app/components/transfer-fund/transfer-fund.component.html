@@ -1,0 +1,25 @@
+<div class="transfer-fund">
+  <div>
+    <h2 class="text-light">Transfer coin to <span>{{contact.name}}</span>:</h2>
+    <form (submit)="onTransferCoins()" class="flex col">
+      <input
+        type="number"
+        [(ngModel)]="amount"
+        name="amount"
+        min="0"
+        [max]="maxCoins"
+        required
+      />
+      <button
+        class="btn-send flex bet a-center"
+      >
+        Send
+        <img
+          class="send-svg btn-img"
+          src="../../../assets/svg/send.svg"
+          alt="✏"
+        />
+      </button>
+    </form>
+  </div>
+</div>

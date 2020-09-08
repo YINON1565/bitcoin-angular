@@ -1,0 +1,71 @@
+.msg-popup {
+    position: fixed;
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1000;
+    &.center-scrren {
+        bottom: initial;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .animation {
+        animation: grow-center-to-sides 0.3s;
+        cursor: pointer;
+        width: fit-content;
+        background-color: blue;
+        &.success {
+            background-color: green;
+        }
+        &.warning {
+            background-color: red;
+        }
+        &.error {
+            background-color: $red4;
+        }
+        border-radius: 3px;
+        h1 {
+            margin: 0;
+            padding: 25px;
+            background-color: $red1;
+            color: $red4;
+        }
+        section {
+            padding: 15px 20px;
+            p {
+                margin: 0;
+                font-size: 18px;
+                font-weight: 700;
+                color: white;
+                // color: $red1;
+                // height: 250px;
+                // width: max-content;
+                // white-space: nowrap;
+                padding: 0px 25px;
+            }
+            .cancel-icon {
+                // width: 50px;
+                margin-inline-start: 2ch;
+                &.center-scrren {
+                    position: absolute;
+                    top: 5px;
+                    left: 5px;
+                }
+                span {
+                    background-color: white;
+                }
+            }
+        }
+        &:hover {
+            .cancel-icon {
+                span {
+                    transform: translate(-50%, -50%) rotate(0deg);
+                }
+                span:first-child {
+                    transform: translate(-50%, -50%) rotate(180deg);
+                }
+            }
+        }
+    }
+    // min-width: 250px;
+}

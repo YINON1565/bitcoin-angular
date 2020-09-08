@@ -1,0 +1,77 @@
+.contact-details {
+    margin-top: 20px;
+    padding: 0 rem(10px);
+    @include for-normal-layout {
+        padding: 0;
+    }
+    .msg-no-action {
+        width: 100%;
+        font-size: 30px;
+        color: $clrTitle;
+        margin-top: rem(80px);
+    }
+    .contact-details-inside {
+        margin: 0 auto;
+        // width: rem(700px);
+        height: rem(600px);
+        position: relative;
+        @include for-small-normal-layout {
+            flex-direction: row;
+        }
+        .avatar {
+            background-color: $clr2;
+        }
+        .link-container {
+            position: fixed;
+            top: rem(120px);
+            height: 165px;
+            padding: 0 9%;
+            right: 0;
+            width: fit-content;
+            @include for-narrow-layout {
+                position: absolute;
+                top: rem(50px);
+                flex-direction: row;
+                padding: 0 7%;
+                height: 0;
+                width: 100%;
+            }
+            @include for-normal-layout {
+                padding: 0 9%;
+            }
+            > * {
+                // background-color: none;
+                // &:hover {
+                //     background-color: $clr3;
+                // }
+                // @include for-narrow-layout {
+                    background-color: $clrBtn;
+                    &:hover {
+                        background-color: $clrBtnHover;
+                    }
+                // }
+                display: flex;
+                align-self: center;
+                justify-content: center;
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                transition: background-color .3s, box-shadow .3s ;
+            }
+        }
+       
+
+        li {
+            color: $clrTitle;
+            font-size: 25px;
+            line-height: 3ch;
+        }
+        
+        li:first-child{
+              line-height: 4ch;
+              font-weight: 600;
+              font-size: 40px;
+              color: lighten($clr1, 85%);
+          }
+    }
+}

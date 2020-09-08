@@ -1,0 +1,5 @@
+<ul *ngIf="contacts && contacts.length" class="contact-list">
+        <li *ngFor="let contact of contacts">
+            <contact-preview [contact]="contact"></contact-preview>
+        </li>
+</ul>

@@ -1,0 +1,16 @@
+  <div *ngIf="contact" class="contact-edit width-container flex col a-center evenly">
+    <div class="btn-side-container flex col a-center bet">
+        <img (click)="goBack()" src="../../../assets/svg/go-back.svg" alt="↻" title="Go Back" />
+        <img *ngIf="contact._id" (click)="onRemoveContact(contact._id)" src="../../../assets/svg/bin.svg" alt="🗑" title="Delete Contant" />
+    </div>
+    <img
+        class="avatar avatar-l"
+        src="https://robohash.org/{{contact.name}}.png"
+    />
+    <form (submit)=onSaveContact() class="input-containet">
+        <input type="text" [(ngModel)]="contact.name"  name="contact.name">
+        <input type="text" [(ngModel)]="contact.email" name="contact.email">
+        <input type="text" [(ngModel)]="contact.phone" name="contact.phone">
+        <button>Save</button>
+    </form>
+</div>

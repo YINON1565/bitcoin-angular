@@ -1,0 +1,21 @@
+<div class="move-list">
+  <!-- <h2 *ngIf="moves.length ; else elseTemplate" class="text-light title">
+    Your Last {{ moves.length > 1 ? moves.length + 'Moves': 'Move' }}:
+</h2> -->
+  <h2 class="text-light title">
+    <ng-container *ngIf="moves.length; else elseTemplate">
+      Your Last {{ moves.length > 1 ? moves.length + " Moves" : " Move" }}
+    </ng-container>
+    <ng-template #elseTemplate>
+      No actions were taken into account
+    </ng-template>
+  </h2>
+  <ul class="move-list-container">
+    <li *ngFor="let move of moves">
+      <move-preview [isTitle]="isTitle" [move]="move"></move-preview>
+      <!-- <MovePreview title={props.title} move={move} /> -->
+    </li>
+  </ul>
+  <chart-move *ngIf="moves.length" [moves]="moves"></chart-move>
+  <!-- <ChartForMoves refProp={props.refProp} allMoves={props.moves}/>   -->
+</div>

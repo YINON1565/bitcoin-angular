@@ -1,0 +1,15 @@
+<div class="nav-bar-container">
+
+  <nav class="width-container nav-bar flex bet">
+    <a class="bitcoin-menu" routerLink="/" title="Home"><img  src="../../../assets/svg/bitcoin-menu.svg" alt=""><span>Miss-Bitcoin.</span></a>
+    <div class="nav-link-container flex col" [class.open-menu]="isOpenMenu">
+
+      <a routerLink="/"><img class="btn-img" src="../../../assets/svg/homepage.svg" alt="Home Page"><span>Home</span></a>
+      <a routerLink="/contact"><img class="btn-img" src="../../../assets/svg/user.svg" alt="Contacts"><span>Contacts</span></a> 
+      <a routerLink="/statistic"><img class="btn-img" src="../../../assets/svg/line-chart.svg" alt="Statistics"><span>Statistics</span></a>
+      <a routerLink="/signup"><img class="btn-img" src="../../../assets/svg/log-in.svg" alt="Sign Up"><span>SignUp</span></a>
+    </div>
+    <img (click)="toogleMenu($event)" class="hamburger" [class.open-menu]="isOpenMenu" src="../../../assets//svg/menu.svg" alt="Menu">
+  </nav>
+</div>
+

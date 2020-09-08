@@ -1,0 +1,14 @@
+<google-chart
+  class="chart"
+  *ngIf="chart"
+  [title]="chart.title"
+  [type]="chart.type"
+  [data]="chart.data"
+  [columns]="chart.columnNames"
+  [options]="chart.options"
+  [dynamicResize]="true"
+  style="width: 100%; height: 400px"
+  (ready)="isReady = true"
+>
+</google-chart>
+<img *ngIf="!isReady" src="../../assets/svg/loading.svg" />

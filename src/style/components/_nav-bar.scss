@@ -1,0 +1,143 @@
+.nav-bar-container {
+    position: sticky;
+    overflow: hidden;
+
+    width: 100%;
+    top: 0;
+    background-color: $clr2;
+    z-index: 10;
+    &.off-line {
+        background-color: $clr3;
+        &::before {
+            content: 'Off-line Mode';
+            // background-image: url('../../assets/svg/wifi.svg');
+            position: fixed;
+            top: 0;
+            left: 0;
+            color: $clr4;
+            font-size: 12px;
+        }
+    }
+    .nav-bar {
+
+        .nav-link-container {
+            width: 0;
+            // height: 0;
+            visibility: hidden;
+            transition: width .3s , visibility .3s;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            background-color: $clr2;
+            box-shadow: 0px 0px 6px 3px black;
+            a {
+                // height: auto;
+            }
+            &.open-menu {
+                transition: width .3s;
+                visibility: visible;
+                width: rem(230px);
+                // min-width: fit-content;
+            }
+            @include for-mobile-layout {
+                width: 100%;
+                height: auto;
+                visibility: visible;
+                flex-direction: row;  
+                &.open-menu {
+                    z-index: auto;
+                    background-color: initial;
+                    width: 100%;
+                    height: auto;
+                    position: initial;
+                }              
+            }
+            a {
+                width: 100%;
+                color: lighten($clr1, 70%);
+                font-size: 20px;
+                display: flex;
+                align-items: center;
+                
+                @include for-mobile-layout {
+                    height: 100%;
+                    justify-content: center;
+                }
+                padding: 20px;
+                transition: background-color .3s, color .3s;
+                &:hover {
+                    background-color: $clr3;
+                }
+                &.active {
+                    color: lighten($clr1, 85%);
+                    background-color: darken($clr2, 5%) ;
+                }
+                span {
+                    display: inline-block;
+                    margin-inline-start: 1ch;
+                    @include for-mobile-layout {
+                        display: none;
+                    }
+                }
+            }
+           
+        }
+        .hamburger, .bitcoin-menu {
+            text-align: center;
+            transition: background-color .3s, color .3s;
+            &.open-menu {
+                display: block;                
+            }
+            &:hover {
+                background-color: $clr3;
+            }
+            
+            &.active {
+                color: lighten($clr1, 85%);
+                background-color: darken($clr2, 5%) ;
+            }
+        }
+        .hamburger, .bitcoin-menu {
+            font-family: ArchitectsDaughter;
+            span {
+                display: none;
+                font-size: 20px;
+            }
+            width: fit-content;
+            padding: 10px 20px;
+            display: block;
+            &.open-menu {
+                display: none;                
+            }
+            cursor: pointer;
+            @include for-mini-mobile-layout {
+                span {
+                    display: inline-block;
+                    font-size: 20px;
+                }
+            }
+            @include for-mobile-layout {
+                display: none;
+            }
+        }
+
+
+        @media (prefers-reduced-motion: no-preference) {
+            .bitcoin-menu {
+                img {
+                    animation: bitcoin-menu-spin infinite 3s linear;
+                }
+            }
+          }
+        @keyframes bitcoin-menu-spin {
+            from {
+              transform: rotateY(0deg);
+            }
+            to {
+              transform: rotateY(360deg);
+            }
+          }
+        
+    }
+}

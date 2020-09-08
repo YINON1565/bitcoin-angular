@@ -1,0 +1,20 @@
+<div *ngIf="move">
+  <h3 *ngIf="isTitle">
+    <span class="text-light">To:</span>
+    <a routerLink="/contact/{{ move.toId }}"> {{ move.to }}</a>
+  </h3>
+  <h3 class="flex">
+    <span class="number flex">
+      <img
+        class="bitcoin-currency"
+        src="../../../assets/svg/bitcoin-logo.svg"
+        alt="B"
+      />{{ move.amount }}
+    </span>
+    <span class="text-light">|</span>
+    {{ moveFormatUSD }}
+  </h3>
+  <h3>
+    <span class="text-light">At:</span> <Moment fromNow>{{ move.at | date : 'medium' }}</Moment>
+  </h3>
+</div>

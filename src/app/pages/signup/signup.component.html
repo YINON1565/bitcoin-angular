@@ -1,0 +1,9 @@
+<div class="sign-up">
+    <img class="bitcoin-img" src="../../../assets/svg/bitcoin.svg" alt="" />
+
+    <h2>Please enter your name</h2>
+    <form (submit)="signup(name)">
+        <input [(ngModel)]="name" name="name" type="text" placeholder="Your name.." required/>
+        <button type="submit">Sign-up</button>
+    </form>
+</div>

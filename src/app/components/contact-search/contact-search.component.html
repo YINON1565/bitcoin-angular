@@ -1,0 +1,10 @@
+<form>
+  <input
+    class="input-filter"
+    type="text"
+    [(ngModel)]="filterBy.term"
+    name="filterBy.term"
+    placeholder="Search..."
+    (input)="onContactSearch.emit(filterBy)"
+  />
+</form>

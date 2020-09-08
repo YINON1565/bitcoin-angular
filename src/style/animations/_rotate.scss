@@ -1,0 +1,18 @@
+@keyframes tremble {
+    from {
+      transform: rotateZ(-5deg);
+    }
+    to {
+      transform: rotateZ(5deg);
+    }
+  }
+
+@keyframes around {
+    from {
+      transform: rotateZ(0deg);
+    }
+    to {
+      transform: rotateZ(360deg);
+    }
+  }
+

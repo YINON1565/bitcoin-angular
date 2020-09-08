@@ -1,0 +1,30 @@
+<div class="home-page width-container">
+  <div class="container-inside flex col j-center">
+    <h1 *ngIf="user">Hi, {{ user.name }}</h1>
+    <section class="currency-container flex bet col">
+      <section class="current-balance">
+        <h2 class="text-light title">Current balance</h2>
+        <h2 class="flex a-center">
+          bit:
+          <img
+            class="bitcoin-currency"
+            src="../../../assets/svg/bitcoin-logo.svg"
+            alt="B"
+          />
+          <span class="number">{{ user.coins }}</span>
+        </h2>
+        <h2>USD: {{ currUserCoinsUSD }}</h2>
+      </section>
+      <section class="current-btc">
+        <h2 class="text-light title">Current BTC USD</h2>
+        <p>{{ rateUSD }}</p>
+      </section>
+    </section>
+    <section class="moves-container">
+      <move-list [isTitle]="true" [moves]="moves"></move-list>
+    </section>
+  </div>
+  <div class="bitcoin-img-container width-container">
+    <img class="bitcoin-img" src="../../../assets/svg/bitcoin.svg" alt="" />
+  </div>
+</div>

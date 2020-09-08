@@ -1,0 +1,55 @@
+.transfer-fund {
+    margin-top: rem(30px);
+    background-color: $clr2;
+    padding: rem(20px) rem(30px);
+    div {
+        // width: auto;
+        @include for-normal-layout {
+            width: fit-content;
+        }
+        border-radius: 3px;
+        h2 {
+            text-align: center;
+            @include for-mobile-layout {
+                text-align: start;
+            }
+            span {
+                color: $clr5;
+            }
+        }
+        div {
+            @include for-mobile-layout {
+                flex-direction: row;
+            }
+            width: 100%;
+            input[type=number]::-webkit-inner-spin-button, 
+            input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+            }
+           
+            input {
+                background-color: $clr1;
+                flex-basis: 80%;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                border-top-left-radius: 3px;
+                border-bottom-left-radius: 3px;
+                margin-bottom: 6px;
+                &:hover {
+                    background-color: $clr3;
+                }
+            }
+            .btn-send {
+                border-top-right-radius: 3px;
+                border-bottom-right-radius: 3px;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                flex-basis: 20%;
+                img {
+                    margin-inline-start: 1ch;
+                }
+            }
+        }
+    }
+}

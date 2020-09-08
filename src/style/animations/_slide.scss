@@ -1,0 +1,149 @@
+
+
+
+
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+        @include for-mobile-layout {
+            transform: translateX(250%);
+        }
+    }
+    100% {
+        transform: translateX(0%);
+    }   
+}
+
+@keyframes slide-down {
+    0% {
+        transform: translateY(-350%);
+    }
+    100% {
+        transform: translateY(0%);
+     }   
+  }
+@keyframes slide-up {
+    0% {
+        transform: translateY(150%);
+    }
+    100% {
+        transform: translateY(0%);
+     }   
+  }
+@keyframes slide-up2 {
+    0% {
+        transform: translateY(25%);
+    }
+    100% {
+        transform: translateY(-25%);
+     }   
+  }
+@keyframes slide-up3 {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+     }   
+  }
+@keyframes slide-up4 {
+    0% {
+        transform: translateY(200%);
+    }
+    100% {
+        transform: translateY(-200%);
+     }   
+  }
+
+@keyframes slide-ltr {
+    0% {
+        transform: translateX(-100%);
+        @include for-mobile-layout {
+            transform: translateX(-250%);
+        }
+    }
+    100% {
+        transform: translateX(0%);
+    }   
+}
+
+// @keyframes slide {
+//     0% {
+//         transform: translateX(150%);
+//     }
+//     100% {
+//         transform: translateX(0%);
+//      }   
+//   }
+
+
+@keyframes opacity-1 {
+    0% {
+        opacity: 0;
+        //    transform: translateX(150%);
+     }
+     100% {
+         opacity: 1;
+     //    transform: translateX(0%);
+    }   
+ }
+
+ @keyframes opacity-2 {
+    0% {
+        opacity: .3;
+        //    transform: translateX(150%);
+     }
+     30% {
+         opacity: .6;
+     //    transform: translateX(0%);
+    }   
+    45% {
+         opacity: .7;
+     //    transform: translateX(0%);
+    }   
+    60% {
+         opacity: .6;
+     //    transform: translateX(0%);
+    }   
+     100% {
+         opacity: .3;
+     //    transform: translateX(0%);
+    }   
+ }
+
+
+ @keyframes rotatemagicmobile{
+    0%{
+      opacity: 0;
+      top: -100%;
+    }
+    100%{
+      top: -15%;
+    }
+}
+@keyframes rotatemagic{
+    0%{
+      opacity: 0;
+      transform: rotate(0deg);
+      top: -24px;
+      right: -253px;
+    }
+    100%{
+      transform: rotate(30deg);
+      top: -24px;
+      right: -78px;
+    }
+}
+@keyframes rotatemagicltr{
+    0%{
+        opacity: 0;
+        top: -24px;
+        left: -253px;
+        transform: rotate(0deg);
+    }
+    100%{
+        top: -24px;
+        left: -78px;
+        transform: rotate(-30deg);
+    }
+}

@@ -1,0 +1,28 @@
+<div *ngIf="contact" class="contact-details width-container">
+  <div class="contact-details-inside flex col a-center evenly">
+    <div class="link-container flex col a-center bet">
+      <a (click)="goBack()">
+        <img src="../../../assets/svg/go-back.svg" alt="↻" title="Go to list" />
+      </a>
+      <a routerLink="/contact/edit/{{ contact._id }}">
+        <img src="../../../assets/svg/pen.svg" alt="✏" title="Edit contact" />
+      </a>
+    </div>
+    <img
+      class="avatar avatar-l"
+      src="https://robohash.org/{{ contact.name }}.png"
+      alt=""
+    />
+    <ul class="contact-details">
+      <li>{{ contact.name }}</li>
+      <li>{{ contact.email }}</li>
+      <li>{{ contact.phone }}</li>
+    </ul>
+  </div>
+  <transfer-fund
+    [contact]="contact"
+    [maxCoins]="user.coins"
+    (transferCoins)="transferCoins($event)"
+  ></transfer-fund>
+  <move-list [isTitle]="false" [moves]="moves"></move-list>
+</div>

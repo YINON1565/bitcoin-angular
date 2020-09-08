@@ -1,0 +1,60 @@
+.contact-edit {
+    margin-top: 20px;
+    padding: 0 rem(10px);
+    height: rem(650px);
+    @include for-small-normal-layout {
+        flex-direction: row;
+        height: rem(600px);
+    }
+    @include for-normal-layout {
+        padding: 0;
+    }
+    
+        margin: 0 auto;
+        // width: rem(700px);
+        position: relative;
+        .avatar {
+            background-color: $clr2;
+        }
+        .btn-side-container {
+            position: fixed;
+            top: rem(120px);
+            right: 0;
+            height: 165px;
+            padding: 0 9%;
+            width: fit-content;
+            @include for-medium-mobile-layout {
+                position: absolute;                
+                top: rem(50px);
+                height: 0;
+                flex-direction: row;
+                width: 100%;
+            }
+            > * {
+                cursor: pointer;
+                background-color: $clrBtn;
+                display: flex;
+                align-self: center;
+                justify-content: center;
+                width: 70px;
+                height: 70px;
+                padding: 15px;
+                border-radius: 50%;
+                transition: background-color .3s ;
+                &:hover {
+                    background-color: $clrBtnHover;
+                }
+                
+            }
+        }
+       
+        .input-containet {
+            display: grid;
+            gap: rem(10px);   
+            input {
+                font-size: 20px;
+                font-family: BalooBhai2;
+                width: rem(320px);
+            }
+        }
+}

@@ -1,0 +1,14 @@
+
+.carousel-enter, .carousel-leave-to {
+
+    opacity: 0;
+    transform: translateY(30px);
+    position: relative;
+    z-index: 1;
+}
+
+    .carousel-leave-active {
+        position: absolute;
+        z-index: 1;
+    }
+

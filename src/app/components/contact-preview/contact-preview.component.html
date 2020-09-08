@@ -1,0 +1,12 @@
+<a class="contact-preview flex a-center" routerLink="/contact/{{ contact._id }}" >
+    <img
+        class="avatar avatar-s"
+        src="https://robohash.org/{{contact.name}}.png"
+        alt=""
+    />
+    <ul class="flex col j-center">
+        <li>{{contact.name}}</li>
+        <li>{{contact.email}}</li>
+        <li>{{contact.phone}}</li>
+    </ul>
+</a>

@@ -1,0 +1,54 @@
+.hamburger {
+    .ham {
+        cursor: pointer;
+        .line {
+            fill: none;
+            transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+            stroke: $blue8;
+            stroke-width: 5.5;
+            stroke-linecap: round;
+        }
+        &.ham1 {
+            .top {
+                stroke-dasharray: 40 139;
+            }
+            .bottom {
+                stroke-dasharray: 40 180;
+            }
+
+            &.active {
+                &.hamRotate {
+                    transform: rotate(45deg);
+                }
+                &.hamRotate180 {
+                    transform: rotate(180deg);
+                }
+                .top {
+                    stroke-dashoffset: -98px;
+                }
+                .bottom {
+                    stroke-dashoffset: -138px;
+                }
+                // .line {
+                //     stroke: $clr5;
+                // }
+            }
+        }
+        &.ham2 {
+            .top {
+                stroke-dasharray: 40 121;
+            }
+            .bottom {
+                stroke-dasharray: 40 121;
+            }
+            &.active {
+                .top {
+                    stroke-dashoffset: -102px;
+                }
+                .bottom {
+                    stroke-dashoffset: -102px;
+                }
+            }
+        }
+    }
+}
