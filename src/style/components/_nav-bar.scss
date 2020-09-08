@@ -9,7 +9,7 @@
     &.off-line {
         background-color: $clr3;
         &::before {
-            content: 'Off-line Mode';
+            content: "Off-line Mode";
             // background-image: url('../../assets/svg/wifi.svg');
             position: fixed;
             top: 0;
@@ -19,12 +19,11 @@
         }
     }
     .nav-bar {
-
         .nav-link-container {
             width: 0;
             // height: 0;
             visibility: hidden;
-            transition: width .3s , visibility .3s;
+            transition: width 0.3s, visibility 0.3s;
             position: fixed;
             top: 0;
             right: 0;
@@ -32,26 +31,28 @@
             background-color: $clr2;
             box-shadow: 0px 0px 6px 3px black;
             a {
-                // height: auto;
+                height: auto;
             }
             &.open-menu {
-                transition: width .3s;
+                transition: width 0.3s;
                 visibility: visible;
                 width: rem(230px);
                 // min-width: fit-content;
             }
             @include for-mobile-layout {
+                box-shadow: none;
+                position: initial;
                 width: 100%;
                 height: auto;
                 visibility: visible;
-                flex-direction: row;  
+                flex-direction: row;
                 &.open-menu {
                     z-index: auto;
                     background-color: initial;
                     width: 100%;
                     height: auto;
                     position: initial;
-                }              
+                }
             }
             a {
                 width: 100%;
@@ -59,19 +60,19 @@
                 font-size: 20px;
                 display: flex;
                 align-items: center;
-                
+
                 @include for-mobile-layout {
                     height: 100%;
                     justify-content: center;
                 }
                 padding: 20px;
-                transition: background-color .3s, color .3s;
+                transition: background-color 0.3s, color 0.3s;
                 &:hover {
                     background-color: $clr3;
                 }
                 &.active {
                     color: lighten($clr1, 85%);
-                    background-color: darken($clr2, 5%) ;
+                    background-color: darken($clr2, 5%);
                 }
                 span {
                     display: inline-block;
@@ -81,24 +82,25 @@
                     }
                 }
             }
-           
         }
-        .hamburger, .bitcoin-menu {
+        .hamburger,
+        .bitcoin-menu {
             text-align: center;
-            transition: background-color .3s, color .3s;
+            transition: background-color 0.3s, color 0.3s;
             &.open-menu {
-                display: block;                
+                display: block;
             }
             &:hover {
                 background-color: $clr3;
             }
-            
+
             &.active {
                 color: lighten($clr1, 85%);
-                background-color: darken($clr2, 5%) ;
+                background-color: darken($clr2, 5%);
             }
         }
-        .hamburger, .bitcoin-menu {
+        .hamburger,
+        .bitcoin-menu {
             font-family: ArchitectsDaughter;
             span {
                 display: none;
@@ -108,7 +110,7 @@
             padding: 10px 20px;
             display: block;
             &.open-menu {
-                display: none;                
+                display: none;
             }
             cursor: pointer;
             @include for-mini-mobile-layout {
@@ -122,22 +124,20 @@
             }
         }
 
-
         @media (prefers-reduced-motion: no-preference) {
             .bitcoin-menu {
                 img {
                     animation: bitcoin-menu-spin infinite 3s linear;
                 }
             }
-          }
+        }
         @keyframes bitcoin-menu-spin {
             from {
-              transform: rotateY(0deg);
+                transform: rotateY(0deg);
             }
             to {
-              transform: rotateY(360deg);
+                transform: rotateY(360deg);
             }
-          }
-        
+        }
     }
 }

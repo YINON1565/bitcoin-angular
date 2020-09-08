@@ -26,6 +26,8 @@ import { MovePreviewComponent } from './components/move-preview/move-preview.com
 import { MoveListComponent } from './components/move-list/move-list.component';
 import { TransferFundComponent } from './components/transfer-fund/transfer-fund.component';
 import { ChartMoveComponent } from './components/chart-move/chart-move.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -49,9 +51,10 @@ import { ChartMoveComponent } from './components/chart-move/chart-move.component
     MoveListComponent,
     TransferFundComponent,
     ChartMoveComponent,
+    
   ],
   // imports: [BrowserModule, AppRoutingModule, FormsModule],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, GoogleChartsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, GoogleChartsModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
   providers: [],
   bootstrap: [AppComponent],
 })

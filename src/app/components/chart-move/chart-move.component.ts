@@ -11,6 +11,8 @@ export class ChartMoveComponent implements OnInit {
   @Input() moves: Move[];
   constructor() {}
   chart: Chart;
+  isReady : boolean = false;
+
   ngOnInit(): void {
     this.setChart();
   }
@@ -19,7 +21,8 @@ export class ChartMoveComponent implements OnInit {
       title: '',
       type: 'AreaChart',
       data: this.moves.map((move) => [new Date(move.at), move.amount]),
-      columns: ['Time', 'Money transfers'],
+      // columnNames: [],
+      columnNames: ['Date', 'Money transfers'],
       options: {
         colors: ['blue'],
         animation: {

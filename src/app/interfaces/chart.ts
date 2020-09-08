@@ -4,7 +4,7 @@ export interface Chart {
     title: string,
     type: string,
     data: any[],
-    columns: any[],
+    columnNames: string[],
     options: {},
     hAxis?: {},
     vAxis?: {},
