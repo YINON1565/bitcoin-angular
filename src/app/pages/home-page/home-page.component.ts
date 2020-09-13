@@ -11,7 +11,6 @@ import { Move } from 'src/app/interfaces/move';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-  
   constructor(
     private userService: UserService,
     private bitcoinService: BitcoinService
@@ -19,32 +18,34 @@ export class HomePageComponent implements OnInit {
 
   // STATE
   user: User;
-  rate: number;
   USD = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
   });
-  currUserCoinsUSD : string; 
-  rateUSD : string; 
-  
+  currUserCoinsUSD: string;
+  rateUSD: string;
+
   // CREATED
   ngOnInit(): void {
     this.getUser();
-    this.getRate();
   }
   
   //METHODS
   getUser(): void {
-    this.userService.getUser().subscribe((user) => (this.user = user));
+    this.userService.getUser().subscribe((user) => {
+      this.user = user
+      this.getRate();
+    });
   }
-  async getRate(): Promise<void> {
-    this.rate = await this.bitcoinService.getRate();
-    this.currUserCoinsUSD = this.USD.format((this.user.coins * (1 / this.rate))); 
-    this.rateUSD = this.USD.format((1 / this.rate)); 
+  getRate(): void {
+    this.bitcoinService.getRate().subscribe((rate) => {
+      this.currUserCoinsUSD = this.USD.format(this.user.coins * (1 / rate));
+      this.rateUSD = this.USD.format(1 / rate);
+    });
   }
 
-  public get moves() :Move[] {
-    return this.user.moves.filter((move,i)=> i < 3)
+  public get moves(): Move[] {
+    return this.user.moves;
+    // return this.user.moves.filter((move,i)=> i < 3)
   }
-  
 }

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Location } from '@angular/common';
-
 
 import { ContactService } from '../../Services/contact-service.service';
 import {User} from '../../interfaces/user'
@@ -17,7 +15,6 @@ export class ContactDetailsPageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private location: Location,
     private contactService: ContactService,
     private userService: UserService
   ) {}
@@ -52,7 +49,8 @@ export class ContactDetailsPageComponent implements OnInit {
 
   
   public get moves() : Move[] {
-    return this.user.moves.filter(move=> move.toId === this.contact._id).filter((m,i)=> i < 3)
+    return this.user.moves.filter(move=> move.toId === this.contact._id)
+    // return this.user.moves.filter(move=> move.toId === this.contact._id).filter((m,i)=> i < 3)
   }
   
 }

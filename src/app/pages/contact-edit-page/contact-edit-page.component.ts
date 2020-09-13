@@ -21,9 +21,6 @@ export class ContactEditPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadContact();
-    console.log('route: ', this.route);
-    console.log('router: ', this.router);
-    
   }
 
   // STATE :
@@ -33,7 +30,6 @@ export class ContactEditPageComponent implements OnInit {
   // METHODS :
   loadContact(): void {
     const contactId = this.route.snapshot.paramMap.get('id');
-    console.log('contactId: ', contactId);97966
     if (contactId) {
       
       this.contactService

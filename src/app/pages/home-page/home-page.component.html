@@ -1,6 +1,6 @@
 <div class="home-page width-container">
-  <div class="container-inside flex col j-center">
-    <h1 *ngIf="user">Hi, {{ user.name }}</h1>
+  <div *ngIf="user" class="container-inside flex col j-center">
+    <h1 >Hi, {{ user.name }}</h1>
     <section class="currency-container flex bet col">
       <section class="current-balance">
         <h2 class="text-light title">Current balance</h2>

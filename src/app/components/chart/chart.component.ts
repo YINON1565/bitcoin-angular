@@ -13,39 +13,66 @@ export class ChartComponent implements OnInit {
 
   isReady: boolean = false;
   constructor(private bitcoinService: BitcoinService) {}
-  statistics: any;
+  // statistics: any;
   ngOnInit(): void {
-    this.getStatistics();
+
+    if (this.rate) {
+      this.getStatistics();
+    }
   }
-  async getStatistics() {
-    this.statistics = await this.bitcoinService.getStatistics(this.rate.name);
-    console.log(this.statistics);
-    this.chart = {
-      type: 'AreaChart',
-      title: this.statistics.description,
-      data: this.statistics.values.map((val) => {
-        return [new Date(val.x * 1000), val.y];
-      }),
-      columnNames: ['Date', this.statistics.unit],
-      options: {
-        colors: [this.rate.color],
-        animation: {
-          duration: 1000,
-          easing: 'liner',
-          startup: true,
-        },
-        titleTextStyle: { fontSize: 21 },
-        is3D: true,
-        // legend: { position: 'none' },
-        hAxis: {
-          // textPosition: 'none',
-          // gridlines: { count: 0, color: 'transparent' },
-        },
-        vAxis: {
-          // textPosition: 'none',
-          // gridlines: { count: 0, color: 'transparent' }
-        },
-      },
-    };
+  getStatistics() {
+    console.log(this.rate, 'rate');
+
+    this.bitcoinService
+      .getStatistics(this.rate.name)
+      .subscribe((statistics) => {
+        this.chart = {
+          type: 'AreaChart',
+          title: statistics.description,
+          data: statistics.values.map((val) => {
+            return [new Date(val.x * 1000), val.y];
+          }),
+          columnNames: ['Date', statistics.unit],
+          options: {
+            colors: [this.rate.color],
+            animation: {
+              duration: 1000,
+              easing: 'liner',
+              startup: true,
+            },
+            titleTextStyle: { fontSize: 21 },
+          },
+        };
+      });
   }
+  // async getStatistics() {
+  //   this.statistics = await this.bitcoinService.getStatistics(this.rate.name);
+  //   this.chart = {
+  //     type: 'AreaChart',
+  //     title: this.statistics.description,
+  //     data: this.statistics.values.map((val) => {
+  //       return [new Date(val.x * 1000), val.y];
+  //     }),
+  //     columnNames: ['Date', this.statistics.unit],
+  //     options: {
+  //       colors: [this.rate.color],
+  //       animation: {
+  //         duration: 1000,
+  //         easing: 'liner',
+  //         startup: true,
+  //       },
+  //       titleTextStyle: { fontSize: 21 },
+  //       is3D: true,
+  //       // legend: { position: 'none' },
+  //       hAxis: {
+  //         // textPosition: 'none',
+  //         // gridlines: { count: 0, color: 'transparent' },
+  //       },
+  //       vAxis: {
+  //         // textPosition: 'none',
+  //         // gridlines: { count: 0, color: 'transparent' }
+  //       },
+  //     },
+  //   };
+  // }
 }

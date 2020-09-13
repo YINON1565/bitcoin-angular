@@ -1,7 +1,7 @@
 <div class="transfer-fund">
   <div>
-    <h2 class="text-light">Transfer coin to <span>{{contact.name}}</span>:</h2>
-    <form (submit)="onTransferCoins()" class="flex col">
+    <h2 *ngIf="contact" class="text-light">Transfer coin to <span>{{contact.name}}</span>:</h2>
+    <form (submit)="onTransferCoins()"contact class="flex col">
       <input
         type="number"
         [(ngModel)]="amount"

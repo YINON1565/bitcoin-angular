@@ -31,7 +31,5 @@ export class ContactPageComponent implements OnInit {
   onContactSearch(filterBy){
     this.filterBy = filterBy
     this.loadContact()
-    // console.log(filterBy, 'fff');
-    
   }
 }

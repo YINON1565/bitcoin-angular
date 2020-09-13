@@ -1,12 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 
 import { UserLoggedinGuard } from './user-loggedin.guard';
+import { RouterModule } from '@angular/router';
 
 describe('UserLoggedinGuard', () => {
   let guard: UserLoggedinGuard;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+        imports: [RouterModule.forRoot([])]
+    });
     guard = TestBed.inject(UserLoggedinGuard);
   });
 

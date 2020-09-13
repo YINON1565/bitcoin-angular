@@ -11,14 +11,6 @@ import { Contact } from '../interfaces/contact';
 export class UserService {
   constructor() {}
   KEY_USER = 'user';
-  // user: User = {
-  //   name: 'yinon',
-  //   coins: 100,
-  //   moves: [],
-  // };
-  // getUser(): Observable<User> {
-  //   return of(this.user);
-  // }
   getUser(): Observable<User> {
     let user = StorageService.load(this.KEY_USER);
     return of(user);
@@ -36,7 +28,6 @@ export class UserService {
   addMove(contact: Contact, amount: number): Observable<User> {
     let user: User;
     this.getUser().subscribe((u) => (user = u));
-    console.log(user, 'user');
     user.coins -= amount;
     const move : Move = {
       toId: contact._id,
@@ -44,19 +35,8 @@ export class UserService {
       at: Date.now(),
       amount,
     };
-    console.log(move, ': Move');
     user.moves.unshift(move);
     StorageService.store(this.KEY_USER, user);
     return of(user);
   }
-
-  // getHeroes(): Observable<Hero[]> {
-  //   // TODO: send the message _after_ fetching the heroes
-  //   this.messageService.add('HeroService: fetched heroes');
-  //   return this.http.get<Hero[]>(this.heroesUrl).pipe(
-  //     tap((_) => this.log('fetched heroes')),
-  //     catchError(this.handleError<Hero[]>('getHeroes', []))
-  //   );
-  //   // return of(HEROES);
-  // }
 }

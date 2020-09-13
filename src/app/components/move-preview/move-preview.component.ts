@@ -11,14 +11,14 @@ export class MovePreviewComponent implements OnInit {
   @Input() move: Move;
   @Input() isTitle: boolean;
   constructor(private bitcoinService: BitcoinService) {}
-  rate: number;
   USD = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
   });
-  moveFormatUSD : string;
-  async ngOnInit(): Promise<void> {
-    this.rate = await this.bitcoinService.getRate();
-    this.moveFormatUSD = this.USD.format((this.move.amount * (1 / this.rate)));
+  moveFormatUSD: string;
+  ngOnInit(): void {
+    this.bitcoinService.getRate().subscribe((rate) => {
+      this.moveFormatUSD = this.USD.format(this.move.amount * (1 / rate));
+    });
   }
 }

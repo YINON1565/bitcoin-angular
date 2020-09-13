@@ -1,4 +1,4 @@
-<a class="contact-preview flex a-center" routerLink="/contact/{{ contact._id }}" >
+<a *ngIf="contact" class="contact-preview flex a-center" routerLink="/contact/{{ contact._id }}" >
     <img
         class="avatar avatar-s"
         src="https://robohash.org/{{contact.name}}.png"

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ContactEditPageComponent } from './contact-edit-page.component';
+import { RouterModule } from '@angular/router';
 
 describe('ContactEditPageComponent', () => {
   let component: ContactEditPageComponent;
@@ -8,7 +9,8 @@ describe('ContactEditPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContactEditPageComponent ]
+      declarations: [ ContactEditPageComponent ],
+      imports: [RouterModule.forRoot([])]
     })
     .compileComponents();
   }));

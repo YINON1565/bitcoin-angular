@@ -4,18 +4,19 @@
 </h2> -->
   <h2 class="text-light title">
     <ng-container *ngIf="moves.length; else elseTemplate">
-      Your Last {{ moves.length > 1 ? moves.length + " Moves" : " Move" }}
+      Your Last {{ moveToList.length > 1 ? moveToList.length + " Moves" : " Move" }}
+      (from {{ moves.length > 1 ? moves.length + " Moves" : " Move" }})
     </ng-container>
     <ng-template #elseTemplate>
       No actions were taken into account
     </ng-template>
   </h2>
   <ul class="move-list-container">
-    <li *ngFor="let move of moves">
+    <li *ngFor="let move of moveToList">
       <move-preview [isTitle]="isTitle" [move]="move"></move-preview>
       <!-- <MovePreview title={props.title} move={move} /> -->
     </li>
   </ul>
-  <chart-move *ngIf="moves.length" [moves]="moves"></chart-move>
+  <chart-move *ngIf="moves.length > 1" [moves]="moves"></chart-move>
   <!-- <ChartForMoves refProp={props.refProp} allMoves={props.moves}/>   -->
 </div>

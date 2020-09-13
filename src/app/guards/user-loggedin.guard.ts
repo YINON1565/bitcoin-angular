@@ -26,10 +26,5 @@ export class UserLoggedinGuard implements CanActivate {
     this.userService.getUser().subscribe(user=> isLoggedinUser = !!user);
     if (!isLoggedinUser) this.router.navigate(['/signup']);
     return isLoggedinUser
-    // const loggedinUser = this.userService.getUser();
-    // console.log(loggedinUser, 'loggedinUser');
-    
-    // if (!loggedinUser) this.router.navigate(['/signup']);
-    // return !!loggedinUser;
   }
 }

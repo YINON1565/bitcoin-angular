@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { AppRoutingModule } from './app-routing.module';
 
 import { GoogleChartsModule } from 'angular-google-charts';
-
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -28,6 +28,10 @@ import { TransferFundComponent } from './components/transfer-fund/transfer-fund.
 import { ChartMoveComponent } from './components/chart-move/chart-move.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { BitcoinService } from './Services/bitcoin-service.service';
+import { ContactService } from './Services/contact-service.service';
+import { UserService } from './Services/user-service.service';
+import { UserLoggedinGuard } from './guards/user-loggedin.guard';
 
 @NgModule({
   declarations: [
@@ -54,8 +58,8 @@ import { environment } from '../environments/environment';
     
   ],
   // imports: [BrowserModule, AppRoutingModule, FormsModule],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, GoogleChartsModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, GoogleChartsModule, HttpClientModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
+  providers: [BitcoinService, ContactService, UserService, UserLoggedinGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
